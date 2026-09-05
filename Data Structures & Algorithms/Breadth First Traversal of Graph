@@ -1,0 +1,34 @@
+/* The class is defined with below variables
+class Graph { 
+  private int V;
+  private Map<Integer, List<Integer>> adjVertices;
+  public Graph(int V) {
+      this.V = V;
+    this.adjVertices = new HashMap<Integer, List<Integer>>();
+  }
+  public void addVertex(int vertex) {
+    adjVertices.putIfAbsent(vertex, new ArrayList<>());
+  }
+  public void addEdge(int src, int dest) {
+    adjVertices.get(src).add(dest);
+  }        */
+
+void BFS(int v) 
+{ 
+    boolean []visited =  new boolean[V];
+    Queue<Integer> q = new LinkedList<>();
+    
+    visited[v]=true;
+    q.add(v);
+    
+    while(!q.isEmpty()){
+        int node = q.poll();
+        System.out.print(node+" ");
+        for(int n:adjVertices.get(node)){
+            if(!visited[n]){
+                visited[n]=true;
+                q.add(n);
+            }
+        }
+    }
+} 
