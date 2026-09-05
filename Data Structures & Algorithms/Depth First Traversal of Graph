@@ -1,0 +1,29 @@
+/* The class is defined with below variables
+  class Graph 
+{ 
+  private Map<Integer, List<Integer>> adjVertices;
+  public Graph() {
+    this.adjVertices = new HashMap<Integer, List<Integer>>();
+  }
+  public void addVertex(int vertex) {
+    adjVertices.putIfAbsent(vertex, new ArrayList<>());
+  }
+  public void addEdge(int src, int dest) {
+    adjVertices.get(src).add(dest);
+  }        */
+
+void DFSUtil(int v, boolean visited[]) 
+{ 
+      visited[v]=true;
+    System.out.print(v+" ");
+    for(int n: adjVertices.get(v)){
+        if(!visited[n])
+            DFSUtil(n,visited);
+    }
+} 
+
+void DFS(int v) 
+{ 
+   boolean visited[]=new boolean[adjVertices.size()];
+    DFSUtil(v,visited);
+} 
